@@ -135,11 +135,8 @@ module.exports = React.createClass({
 						<CleanLink to={`/2016/${i + 1}/`}>{i + 1}</CleanLink>
 					</InlineLi>)}
 				</QuickArticleList>
-				<EqualWidthExpander align='right'>
-					<ul
-						className={renderer.renderRule(sharedStyles.mixins.listReset) + ' ' +
-							renderer.renderRule(styles.hiddenOnMobile)}
-					>
+				<EqualWidthExpander align='right' className={renderer.renderRule(styles.hiddenOnMobile)}>
+					<ul className={renderer.renderRule(sharedStyles.mixins.listReset)}>
 						<InlineLi>
 							<CleanLink to='/about/'>About</CleanLink>
 						</InlineLi>
