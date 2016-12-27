@@ -1,0 +1,57 @@
+{
+  "name": "crypto.christmas",
+  "description": "The 12 Days of Crypto: A simple 12-step guide to improving your privacy and security online.",
+  "version": "1.0.0",
+  "author": "rileyjshaw <i@rileyjshaw.com>",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rileyjshaw/crypto.christmas.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rileyjshaw/crypto.christmas/issues/"
+  },
+  "dependencies": {
+    "fela": "^4.1.1",
+    "fela-plugin-fallback-value": "^4.1.1",
+    "fela-plugin-prefixer": "^4.1.1",
+    "fela-plugin-unit": "^4.1.1",
+    "front-matter": "^2.1.1",
+    "gatsby": "^0.12.27",
+    "history": "^4.5.0",
+    "js-yaml": "^3.7.0",
+    "markdown-it": "^8.2.2",
+    "markdown-it-abbr": "^1.0.4",
+    "markdown-it-attrs": "^0.8.0",
+    "markdown-it-deflist": "^2.0.1",
+    "markdown-it-footnote": "^3.0.1",
+    "markdown-it-sub": "^1.0.0",
+    "object-assign": "^4.1.0",
+    "react": "^15.4.1",
+    "react-addons-css-transition-group": "^15.4.1",
+    "react-balance-text": "github:khan/react-balance-text",
+    "react-fela": "^4.1.1",
+    "react-helmet": "^3.2.3",
+    "toml-js": "0.0.8"
+  },
+  "devDependencies": {
+    "fs-extra": "^1.0.0",
+    "gh-pages": "^0.12.0"
+  },
+  "keywords": [
+    "crypto",
+    "privacy",
+    "password",
+    "security",
+    "encryption",
+    "snowden",
+    "nsa",
+    "surveillance"
+  ],
+  "license": "CC0-1.0",
+  "main": "n/a",
+  "scripts": {
+    "build": "gatsby build",
+    "dev": "gatsby develop",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

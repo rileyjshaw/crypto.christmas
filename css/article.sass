@@ -1,0 +1,31 @@
+div.article-enter
+	opacity: 0
+
+	&.article-enter-active
+		opacity: 1
+		transform: translate3d(0, 0, 0)
+		transition: opacity 0.4s 0.2s ease-out, transform 0.4s 0.2s ease-out
+
+div.article-leave
+	opacity: 1
+	position: absolute
+	top: 0
+	transform: translate3d(0, 0, 0)
+
+	&.article-leave-active
+		opacity: 0
+		transition: opacity 0.4s ease-in, transform 0.4s ease-in
+
+.leftTransition
+	.article-enter
+		transform: translate3d(30%, 0, 0)
+
+	.article-leave.article-leave-active
+		transform: translate3d(-30%, 0, 0)
+
+.rightTransition
+	.article-enter
+		transform: translate3d(-30%, 0, 0)
+
+	.article-leave.article-leave-active
+		transform: translate3d(30%, 0, 0)
