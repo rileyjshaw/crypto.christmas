@@ -82,6 +82,12 @@ const styles = {
 		fontWeight: 'inherit',
 	}),
 
+	thickUnderline: props => ({
+		borderBottom: '3px solid #fff',
+		paddingBottom: 2,
+		paddingTop: 5,
+	}),
+
 	footer: props => ({
 		boxShadow: '0 -1px 0 0 rgba(255, 255, 255, 0.2)',
 		padding: '24px 12px',
@@ -119,7 +125,21 @@ module.exports = React.createClass({
 
 	render () {
 		const [{page}] = this.props.routes.slice(-1);
-		const {requirePath: path} = page;
+		const {path, requirePath} = page;
+
+		const quickLinks = Array.from({length: 12}, (_, i) => {
+			const to = `/2016/${i + 1}/`;
+			const linkClassName = to === path
+				? renderer.renderRule(styles.thickUnderline)
+				: '';
+
+			return <InlineLi key={i}>
+				<CleanLink
+					to={to}
+					className={linkClassName}
+				>{i + 1}</CleanLink>
+			</InlineLi>
+		});
 
 		// TODO(riley): Gatsby's aggressive use of dangerouslySetInnerHTML doesn't mesh well with Fela, but this works
 		//              for now. May need to revisit if SSR happens.
@@ -130,11 +150,7 @@ module.exports = React.createClass({
 						<h1 className={renderer.renderRule(styles.inheritFont)}>crypto christmas 🔒🎄</h1>
 					</CleanLink>
 				</EqualWidthExpander>
-				<QuickArticleList>
-					{Array.from({length: 12}, (_, i) => <InlineLi key={i}>
-						<CleanLink to={`/2016/${i + 1}/`}>{i + 1}</CleanLink>
-					</InlineLi>)}
-				</QuickArticleList>
+				<QuickArticleList>{quickLinks}</QuickArticleList>
 				<EqualWidthExpander align='right' className={renderer.renderRule(styles.hiddenOnMobile)}>
 					<ul className={renderer.renderRule(sharedStyles.mixins.listReset)}>
 						<InlineLi>
@@ -162,7 +178,7 @@ module.exports = React.createClass({
 				If you notice anything wrong, you can <ExternalLink
 					to='https://github.com/rileyjshaw/crypto.christmas/issues'
 				>log an issue</ExternalLink> or <ExternalLink
-					to={`https://github.com/rileyjshaw/crypto.christmas/edit/master/pages/${path}`}
+					to={`https://github.com/rileyjshaw/crypto.christmas/edit/master/pages/${requirePath}`}
 				>suggest edits to this page</ExternalLink>.
 			</Footer>
 		</div></Provider>;
