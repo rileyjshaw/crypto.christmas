@@ -30,7 +30,7 @@
     "react-addons-css-transition-group": "^15.4.1",
     "react-balance-text": "github:khan/react-balance-text",
     "react-fela": "^4.1.1",
-    "react-helmet": "^3.2.3",
+    "react-helmet": "^3.3.0",
     "toml-js": "0.0.8"
   },
   "devDependencies": {
