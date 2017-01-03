@@ -1,19 +1,11 @@
-import React from 'react'
-import {Link} from 'react-router'
-import {prefixLink} from 'gatsby-helpers'
-import Helmet from 'react-helmet'
 import {config} from 'config'
+import {prefixLink} from 'gatsby-helpers'
+import React from 'react'
+import BalanceText from 'react-balance-text'
+import Helmet from 'react-helmet'
+import {Link} from 'react-router'
 
 import sharedStyles from 'utils/sharedStyles'
-
-
-// HACK(riley): SSR, this was a quick way to get the build step working.
-let BalanceText = ({children, ...rest}) => <div {...rest}>{children}</div>;
-try {
-	BalanceText = require('react-balance-text').default;
-} catch (e) {
-	console.log('\nException caught:\n', e);
-}
 
 
 const styles = {
