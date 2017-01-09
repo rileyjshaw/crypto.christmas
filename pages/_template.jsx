@@ -141,7 +141,7 @@ module.exports = React.createClass({
 		});
 
 		// TODO(riley): Gatsby's aggressive use of dangerouslySetInnerHTML doesn't mesh well with Fela, but this works
-		//              for now. May need to revisit if SSR happens.
+		//              for now. This will be fixed in 1.0: https://github.com/gatsbyjs/gatsby/issues/544.
 		return <Provider renderer={renderer} mountNode={mountNode}><div>
 			<Header>
 				<EqualWidthExpander>
