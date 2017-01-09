@@ -4,8 +4,7 @@ import prefixer from 'fela-plugin-prefixer'
 import unit from 'fela-plugin-unit'
 import {prefixLink} from 'gatsby-helpers'
 import React from 'react'
-// import BalanceText from 'react-balance-text'  // TODO(riley): This has some bad bugs; link in the text content wasn't
-//                                                               updating properly, height was jumpy… investigate.
+import BalanceText from 'react-balance-text'
 import {createComponent, Provider} from 'react-fela'
 import {Link} from 'react-router'
 
@@ -170,17 +169,15 @@ module.exports = React.createClass({
 				</EqualWidthExpander>
 			</Header>
 			<Container>{this.props.children}</Container>
-			<Footer>
+			<Footer><BalanceText>
 				This guide is free and open-source. It is hosted on <ExternalLink
 					to='https://github.com/rileyjshaw/crypto.christmas'
-				>GitHub</ExternalLink>.
-				<br />
-				If you notice anything wrong, you can <ExternalLink
+				>GitHub</ExternalLink>. If you notice anything wrong, you can <ExternalLink
 					to='https://github.com/rileyjshaw/crypto.christmas/issues'
 				>log an issue</ExternalLink> or <ExternalLink
 					to={`https://github.com/rileyjshaw/crypto.christmas/edit/master/pages/${requirePath}`}
 				>suggest edits to this page</ExternalLink>.
-			</Footer>
+			</BalanceText></Footer>
 		</div></Provider>;
 	},
 });
