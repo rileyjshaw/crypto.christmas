@@ -18,11 +18,11 @@ module.exports = React.createClass({
 		//
 		//              for some history.
 		const post = this.props.route.page.data;
+		const {description, title} = post;
+		const meta = description && [{name: 'description', content: description}];
 
 		return <div className="markdown">
-			<Helmet
-				title={`${config.siteTitle} | ${post.title}`}
-			/>
+			<Helmet title={title} meta={meta} />
 			<div dangerouslySetInnerHTML={{ __html: post.body }} />
 		</div>;
 	},

@@ -1,3 +1,4 @@
+import {config} from 'config'
 import {createRenderer} from 'fela'
 import fallbackValue from 'fela-plugin-fallback-value'
 import prefixer from 'fela-plugin-prefixer'
@@ -6,6 +7,7 @@ import {prefixLink} from 'gatsby-helpers'
 import React from 'react'
 import BalanceText from 'react-balance-text'
 import {createComponent, Provider} from 'react-fela'
+import Helmet from 'react-helmet'
 import {Link} from 'react-router'
 
 import ExternalLink from 'components/ExternalLink'
@@ -15,6 +17,8 @@ import 'css/markdown.sass'
 import 'css/typography.sass'
 import {gearIcon} from 'utils/icons'
 import sharedStyles from 'utils/sharedStyles'
+
+const {siteTitle} = config;
 
 
 const renderer = createRenderer({
@@ -143,6 +147,14 @@ module.exports = React.createClass({
 		// TODO(riley): Gatsby's aggressive use of dangerouslySetInnerHTML doesn't mesh well with Fela, but this works
 		//              for now. This will be fixed in 1.0: https://github.com/gatsbyjs/gatsby/issues/544.
 		return <Provider renderer={renderer} mountNode={mountNode}><div>
+			<Helmet
+				defaultTitle={siteTitle}
+				titleTemplate={`%s | ${siteTitle}`}
+				meta={[
+					{'name': 'description', 'content': 'Spend five minutes per day for 12 days to improve your online privacy & security. Simple, actionable steps to protect you from surveillance & attack.'},
+					{'name': 'keywords', 'content': 'attack, cryptography, email, encryption, government, hack, hacker, hacking, internet, message, NSA, password, privacy, private, protect, protection, safety, security, signal, spies, surveillance, web'},
+				]}
+			/>
 			<Header>
 				<EqualWidthExpander>
 					<CleanLink to={prefixLink('/')}>

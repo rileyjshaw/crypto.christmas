@@ -1,8 +1,6 @@
-import {config} from 'config'
 import {prefixLink} from 'gatsby-helpers'
 import React from 'react'
 import BalanceText from 'react-balance-text'
-import Helmet from 'react-helmet'
 import {Link} from 'react-router'
 
 import sharedStyles from 'utils/sharedStyles'
@@ -101,13 +99,6 @@ export default class Index extends React.Component {
 			;
 
 		return <div className={renderRule(styles.container)}>
-			<Helmet
-				title={config.siteTitle}
-				meta={[
-					{'name': 'description', 'content': 'Spend five minutes per day for 12 days to improve your online privacy & security. Simple, actionable steps to protect you from surveillance & attack.'},
-					{'name': 'keywords', 'content': 'attack, cryptography, email, encryption, government, hack, hacker, hacking, internet, message, NSA, password, privacy, private, protect, protection, safety, security, signal, spies, surveillance, web'},
-				]}
-			/>
 			<div className={renderRule(styles.cta)}><BalanceText>
 				Spend five minutes per day for 12 days to improve your online privacy and security.
 			</BalanceText></div>
