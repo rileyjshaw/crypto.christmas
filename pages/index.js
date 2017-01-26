@@ -104,8 +104,8 @@ export default class Index extends React.Component {
 			<Helmet
 				title={config.siteTitle}
 				meta={[
-					{'name': 'Crypto Christmas', 'content': 'Spend five minutes per day for 12 days to improve your online privacy and security.'},
-					{'name': 'keywords', 'content': 'cryptography, security, privacy, internet, email, hacking, safety'},
+					{'name': 'description', 'content': 'Spend five minutes per day for 12 days to improve your online privacy & security. Simple, actionable steps to protect you from surveillance & attack.'},
+					{'name': 'keywords', 'content': 'attack, cryptography, email, encryption, government, hack, hacker, hacking, internet, message, NSA, password, privacy, private, protect, protection, safety, security, signal, spies, surveillance, web'},
 				]}
 			/>
 			<div className={renderRule(styles.cta)}><BalanceText>
