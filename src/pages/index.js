@@ -1,7 +1,6 @@
-import {prefixLink} from 'gatsby-helpers'
+import Link from 'gatsby-link'
 import React from 'react'
 import BalanceText from 'react-balance-text'
-import {Link} from 'react-router'
 
 import sharedStyles from 'utils/sharedStyles'
 

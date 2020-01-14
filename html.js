@@ -1,4 +1,3 @@
-import {prefixLink} from 'gatsby-helpers'
 import React from 'react'
 import Helmet from 'react-helmet'
 
@@ -41,7 +40,7 @@ module.exports = React.createClass({
 			<body>
 				<style id="fela" />
 				<div id='react-mount' dangerouslySetInnerHTML={{ __html: this.props.body }} />
-				<script src={prefixLink(`/bundle.js?t=${BUILD_TIME}`)} />
+				<script src={`/bundle.js?t=${BUILD_TIME}`} />
 				{process.env.NODE_ENV === 'production' && <script src='/snowstorm-min.js' />}
 				{process.env.NODE_ENV === 'production' && <script>snowStorm.zIndex = 2;</script>}
 			</body>

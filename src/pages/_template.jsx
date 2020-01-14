@@ -3,12 +3,11 @@ import {createRenderer} from 'fela'
 import fallbackValue from 'fela-plugin-fallback-value'
 import prefixer from 'fela-plugin-prefixer'
 import unit from 'fela-plugin-unit'
-import {prefixLink} from 'gatsby-helpers'
+import Link from 'gatsby-link'
 import React from 'react'
 import BalanceText from 'react-balance-text'
 import {createComponent, Provider} from 'react-fela'
 import Helmet from 'react-helmet'
-import {Link} from 'react-router'
 
 import ExternalLink from 'components/ExternalLink'
 import InlineIcon from 'components/InlineIcon'
@@ -148,18 +147,16 @@ module.exports = React.createClass({
 		//              for now. This will be fixed in 1.0: https://github.com/gatsbyjs/gatsby/issues/544.
 		return <Provider renderer={renderer} mountNode={mountNode}><div>
 			<Helmet
-				htmlAttributes={{prefix: 'og: http://ogp.me/ns#'}}
 				defaultTitle={siteTitle}
 				titleTemplate={`%s | ${siteTitle}`}
 				meta={[
-					{property: 'og:site_name', content: siteTitle},
-					{name: 'description', content: 'Spend five minutes per day for 12 days to improve your online privacy & security. Simple, actionable steps to protect you from surveillance & attack.'},
-					{name: 'keywords', content: 'attack, cryptography, email, encryption, government, hack, hacker, hacking, internet, message, NSA, password, privacy, private, protect, protection, safety, security, signal, spies, surveillance, web'},
+					{'name': 'description', 'content': 'Spend five minutes per day for 12 days to improve your online privacy & security. Simple, actionable steps to protect you from surveillance & attack.'},
+					{'name': 'keywords', 'content': 'attack, cryptography, email, encryption, government, hack, hacker, hacking, internet, message, NSA, password, privacy, private, protect, protection, safety, security, signal, spies, surveillance, web'},
 				]}
 			/>
 			<Header>
 				<EqualWidthExpander>
-					<CleanLink to={prefixLink('/')}>
+					<CleanLink to='/' exact>
 						<h1 className={renderer.renderRule(styles.inheritFont)}>crypto christmas 🔒🎄</h1>
 					</CleanLink>
 				</EqualWidthExpander>
@@ -175,7 +172,7 @@ module.exports = React.createClass({
 							<CleanLink to='/blog/'>Blog</CleanLink>
 						</InlineLi>
 						<InlineLi style={{color: this.state.toggle ? 'red' : 'blue'}}>
-							<Settings>
+							<InlineIcon {...gearIcon} onClick={() => this.setState({toggle: !this.state.toggle})} />
 						</InlineLi>
 						*/}
 

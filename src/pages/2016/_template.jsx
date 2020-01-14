@@ -1,8 +1,7 @@
+import Link from 'gatsby-link'
 import React from 'react'
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group'
 import {createComponent} from 'react-fela'
-import Helmet from 'react-helmet'
-import {Link} from 'react-router'
 
 import {config} from 'config'
 import InlineIcon from 'components/InlineIcon'
@@ -66,7 +65,7 @@ module.exports = React.createClass({
 	render () {
 		const {renderRule} = this.context.renderer;
 		const {route} = this.props.children.props;
-		const {page: {data: {title}, file}} = route;
+		const {page: {data, file}} = route;
 		const day = +file.name;
 		const pathIdx = day - 1;
 		const paths = this.props.route.childRoutes
@@ -78,13 +77,6 @@ module.exports = React.createClass({
 		const next = paths[pathIdx + 1];
 
 		return <div className={renderRule(styles.container)}>
-			<Helmet
-				htmlAttributes={{prefix: 'og: http://ogp.me/ns# article: http://ogp.me/ns/article#'}}
-				meta={[
-					{property: 'og:title', content: title},
-					{property: 'og:type', content: 'article'},
-				]}
-			/>
 			<ReactCSSTransitionGroup
 				className={`${this.state.direction}Transition`}
 				transitionEnterTimeout={700}
@@ -109,7 +101,7 @@ module.exports = React.createClass({
 							<InlineIcon {...arrowRightIcon} />
 						</Link>}
 					</p>
-					<h1 style={{marginTop: 0}}>{title || 'Coming soon'}</h1>
+					<h1 style={{marginTop: 0}}>{data.title || 'Coming soon'}</h1>
 					{this.props.children}
 				</div>
 			</ReactCSSTransitionGroup>
